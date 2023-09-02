@@ -1,0 +1,58 @@
+<ng-container *ngIf="product$ | async as product">
+  <h2 [innerHTML]="product.title"></h2>
+  <div class="flex-container">
+    <main>
+      <p
+        class="description"
+        [innerHTML]="product.description"
+      ></p>
+      <p
+        class="price"
+        [innerHTML]="product.price | numberAsEuro"
+      ></p>
+      <fieldset legend="actions">
+        <button class="like">
+          <fa-icon
+            size="2x"
+            [icon]="product.liked ? faHeartFilled : faHeartEmpty"
+          ></fa-icon>
+          <span>Add to wishlist</span>
+        </button>
+        <button class="like">
+          <fa-icon
+            size="2x"
+            [icon]="faMoneyCheckDollar"
+          ></fa-icon>
+          <span>Buy</span>
+        </button>
+      </fieldset>
+    </main>
+    <aside>
+      <table class="details">
+        <caption>
+          Details
+        </caption>
+        <tr>
+          <th>Category</th>
+          <td [innerHTML]="product.category"></td>
+        </tr>
+        <tr>
+          <th>Material</th>
+          <td [innerHTML]="product.material"></td>
+        </tr>
+        <tr>
+          <th>Tag</th>
+          <td [innerHTML]="product.tag"></td>
+        </tr>
+        <tr>
+          <th>Reseller</th>
+          <td [innerHTML]="product.reseller"></td>
+        </tr>
+        <tr>
+          <th>Date added</th>
+          <td [innerHTML]="product.dateAdded | date"></td>
+        </tr>
+      </table>
+    </aside>
+  </div>
+</ng-container>

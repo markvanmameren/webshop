@@ -1,0 +1,11 @@
+@import 'style-variables';
+
+:host {
+  height: $size-header-footer-height;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: $padding-default;
+  padding: $padding-default;
+  background-color: $color-background-medium;
+}

@@ -1,0 +1,13 @@
+@import 'style-variables';
+
+:host {
+  display: flex;
+  flex-direction: column;
+
+  .flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+  }
+}
