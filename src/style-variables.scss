@@ -1,0 +1,63 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;500;600;700;800&family=Poppins:wght@200;700&display=swap');
+
+// breakpoints
+$mobile-breakpoint: 640px;
+
+// fonts
+$font-family-base: 'Poppins', sans-serif;
+$font-family-headers: 'Montserrat Alternates', $font-family-base;
+
+$font-line-height: 1.5;
+$font-style-default: normal;
+
+$font-size-rem-base-value: 14pt;
+$font-size-base: 1rem;
+$font-size-h1: 2.2rem;
+$font-size-h2: 2rem;
+$font-size-h3: 1.8rem;
+$font-size-h4: 1.6rem;
+$font-size-h5: 1.4rem;
+$font-size-h6: 1.2rem;
+
+$font-weight-base: 200;
+$font-weight-h1: 800;
+$font-weight-h2: 700;
+$font-weight-h3: 600;
+$font-weight-h4: 500;
+$font-weight-h5: 400;
+$font-weight-h6: 400;
+
+// padding / margin / gap
+$padding-small: 10px;
+$padding-default: 20px;
+
+// sizes
+$size-header-height: 80px;
+$size-header-logo: 40px;
+$size-sidebar-width: 300px;
+$size-notification-width: 300px;
+$size-min-item-height: 50px;
+$size-max-editor-width: 800px;
+$size-actions-height: 25px;
+
+// borders
+$border-radius-default: 5px;
+$border-width-default: 2px;
+
+// transitions
+$transition-duration-default: 0.15s;
+$transition-easing-default: linear;
+
+// colors
+$color-text-dark: #000000;
+$color-text-light: #eee;
+$color-accent: #006cb2;
+$color-accent-active: #e4a226;
+$color-alt: #fae291;
+$color-background-light: #f8f8f8;
+$color-background-medium: #e7e7e7;
+$color-background-dark: #424242;
+$color-background-black: #000000;
+$color-error: #b71c1c;
+$color-success: #1b5e20;
