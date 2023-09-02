@@ -1,0 +1,23 @@
+<header>
+  <p
+    class="title"
+    [innerHTML]="product.title"
+  ></p>
+</header>
+<div
+  class="image"
+  [style.background-image]="'url(' + product.imageUrl + ')'"
+  [ariaLabel]="product.title"
+></div>
+<footer>
+  <p
+    class="price"
+    [innerHTML]="product.price | numberAsEuro"
+  ></p>
+  <button class="like">
+    <fa-icon
+      size="2x"
+      [icon]="product.liked ? heartFilled : heartEmpty"
+    ></fa-icon>
+  </button>
+</footer>

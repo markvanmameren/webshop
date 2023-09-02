@@ -1,0 +1,23 @@
+@import 'style-variables';
+
+:host {
+  display: grid;
+
+  grid-template-rows: auto 1fr auto;
+  grid-gap: $padding-default;
+  padding: $padding-default;
+}
+
+/* Mobile */
+@media (max-width: $mobile-breakpoint) {
+  :host {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Desktop */
+@media (min-width: $mobile-breakpoint) {
+  :host {
+    grid-template-columns: repeat(auto-fit, minmax($size-min-card-width, 1fr));
+  }
+}

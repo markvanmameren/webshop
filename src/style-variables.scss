@@ -1,5 +1,6 @@
-// Fonts
-@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;500;600;700;800&family=Poppins:wght@200;700&display=swap');
+// Font imports
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates');
+@import url('https://fonts.googleapis.com/css2?family=Poppins');
 
 // breakpoints
 $mobile-breakpoint: 640px;
@@ -11,14 +12,14 @@ $font-family-headers: 'Montserrat Alternates', $font-family-base;
 $font-line-height: 1.5;
 $font-style-default: normal;
 
-$font-size-rem-base-value: 14pt;
+$font-size-rem-base-value: 10pt;
 $font-size-base: 1rem;
 $font-size-h1: 2.2rem;
 $font-size-h2: 2rem;
-$font-size-h3: 1.8rem;
-$font-size-h4: 1.6rem;
-$font-size-h5: 1.4rem;
-$font-size-h6: 1.2rem;
+$font-size-h3: 1.6rem;
+$font-size-h4: 1.4rem;
+$font-size-h5: 1.2em;
+$font-size-h6: 1rem;
 
 $font-weight-base: 200;
 $font-weight-h1: 800;
@@ -36,10 +37,8 @@ $padding-default: 20px;
 $size-header-height: 80px;
 $size-header-logo: 40px;
 $size-sidebar-width: 300px;
-$size-notification-width: 300px;
-$size-min-item-height: 50px;
-$size-max-editor-width: 800px;
-$size-actions-height: 25px;
+$size-min-card-width: 260px;
+$size-card-header-footer-height: 75px;
 
 // borders
 $border-radius-default: 5px;
@@ -52,9 +51,8 @@ $transition-easing-default: linear;
 // colors
 $color-text-dark: #000000;
 $color-text-light: #eee;
-$color-accent: #006cb2;
-$color-accent-active: #e4a226;
-$color-alt: #fae291;
+$color-accent: #e4a226;
+$color-accent-active: #fae291;
 $color-background-light: #f8f8f8;
 $color-background-medium: #e7e7e7;
 $color-background-dark: #424242;
