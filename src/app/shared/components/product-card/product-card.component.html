@@ -1,25 +1,22 @@
 <a [routerLink]="product.id">
-  <header>
-    <p
-      class="title"
-      [innerHTML]="product.title"
-    ></p>
-  </header>
   <div
     class="image"
     [style.background-image]="'url(' + product.imageUrl + ')'"
     [ariaLabel]="product.title"
   ></div>
   <footer>
-    <p
-      class="price"
-      [innerHTML]="product.price | numberAsEuro"
-    ></p>
-    <button class="like">
-      <fa-icon
-        size="2x"
-        [icon]="product.liked ? faHeartFilled : faHeartEmpty"
-      ></fa-icon>
-    </button>
+    <div class="info">
+      <p
+        class="title"
+        [innerHTML]="product.title"
+      ></p>
+      <p
+        class="price"
+        [innerHTML]="product.price | numberAsEuro"
+      ></p>
+    </div>
+    <aside>
+      <shop-like-icon></shop-like-icon>
+    </aside>
   </footer>
 </a>

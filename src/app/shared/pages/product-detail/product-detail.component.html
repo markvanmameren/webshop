@@ -1,32 +1,30 @@
 <ng-container *ngIf="product$ | async as product">
-  <h2 [innerHTML]="product.title"></h2>
+  <h2
+    class="title"
+    [innerHTML]="product.title"
+  ></h2>
   <div class="flex-container">
-    <main>
+    <div class="info">
+      <div
+        class="image"
+        [style.background-image]="'url(' + product.imageUrl + ')'"
+        [ariaLabel]="product.title"
+      ></div>
       <p
         class="description"
         [innerHTML]="product.description"
       ></p>
-      <p
-        class="price"
-        [innerHTML]="product.price | numberAsEuro"
-      ></p>
-      <fieldset legend="actions">
-        <button class="like">
-          <fa-icon
-            size="2x"
-            [icon]="product.liked ? faHeartFilled : faHeartEmpty"
-          ></fa-icon>
-          <span>Add to wishlist</span>
-        </button>
-        <button class="like">
-          <fa-icon
-            size="2x"
-            [icon]="faMoneyCheckDollar"
-          ></fa-icon>
-          <span>Buy</span>
-        </button>
-      </fieldset>
-    </main>
+      <footer>
+        <p
+          class="price"
+          [innerHTML]="product.price | numberAsEuro"
+        ></p>
+        <shop-like-icon
+          [liked]="product.liked"
+          title="add to wishlist"
+        ></shop-like-icon>
+      </footer>
+    </div>
     <aside>
       <table class="details">
         <caption>

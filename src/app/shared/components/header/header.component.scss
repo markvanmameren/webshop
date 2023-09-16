@@ -1,21 +1,11 @@
 @import 'style-variables';
 
-:host {
+header {
   height: $size-header-footer-height;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: $padding-default;
-  padding: $padding-default;
-  background-color: $color-background-medium;
-  color: $color-text-light;
-}
-
-/* Mobile */
-@media (max-width: $mobile-breakpoint) {
-  :host {
-    h1 {
-      display: none;
-    }
-  }
+  gap: $padding-large;
+  padding: $padding-large;
+  background-color: $color-background-default;
 }

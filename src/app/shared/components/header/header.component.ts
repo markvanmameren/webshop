@@ -8,4 +8,8 @@ import { faShop } from '@fortawesome/free-solid-svg-icons'
 })
 export class HeaderComponent {
   public faShop = faShop
+
+  public handleLikeClicked(): void {
+    alert(3)
+  }
 }

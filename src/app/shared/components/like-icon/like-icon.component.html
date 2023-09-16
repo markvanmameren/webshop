@@ -1,0 +1,16 @@
+<button (click)="onclick.emit()">
+  <fa-icon
+    size="1x"
+    [icon]="liked ? faHeartFilled : faHeartEmpty"
+  ></fa-icon>
+  <span
+    *ngIf="title"
+    class="title"
+    [innerHTML]="title"
+  ></span>
+  <span
+    *ngIf="badge > 0"
+    class="badge"
+    [innerHTML]="badge"
+  ></span>
+</button>

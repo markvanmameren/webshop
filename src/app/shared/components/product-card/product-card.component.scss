@@ -4,48 +4,45 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: $color-background-medium;
   height: 100%;
 
   & > * {
     width: 100%;
   }
 
-  header,
-  footer {
-    height: $size-card-header-footer-height;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-    padding: $padding-default;
-  }
-
-  header {
-    justify-content: center;
-
-    .title {
-      font-size: $font-size-h3;
-    }
-  }
-
   .image {
-    height: $size-card-header-footer-height * 4;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    display: flex;
+    aspect-ratio: 1 / 1;
   }
 
   footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    overflow: hidden;
+    padding: $padding-medium 0;
     justify-content: space-between;
 
-    .price {
-      font-size: $font-size-h3;
-      color: $color-accent;
+    .info {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      gap: $padding-small;
+
+      .title {
+        font-size: $font-size-h5;
+      }
+
+      .price {
+        font-size: $font-size-h6;
+        color: $color-text-light;
+      }
     }
 
-    .like {
-      color: $color-accent;
+    aside {
+      padding: $padding-small;
     }
   }
 }

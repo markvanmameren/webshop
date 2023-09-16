@@ -1,6 +1,4 @@
 import { Component, Input } from '@angular/core'
-import { faHeart as faHeartEmpty } from '@fortawesome/free-regular-svg-icons'
-import { faHeart as faHeartFilled } from '@fortawesome/free-solid-svg-icons'
 import { IProduct } from '../../interfaces/product.interface'
 
 @Component({
@@ -10,8 +8,4 @@ import { IProduct } from '../../interfaces/product.interface'
 })
 export class ProductCardComponent {
   @Input() product: IProduct
-
-  // icons
-  public faHeartEmpty = faHeartEmpty
-  public faHeartFilled = faHeartFilled
 }

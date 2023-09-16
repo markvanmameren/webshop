@@ -1,5 +1,6 @@
 @import 'style-variables';
 
 main {
-  padding: $padding-default;
+  padding: $padding-large;
+  min-height: calc(100vh - ($size-header-footer-height * 2));
 }

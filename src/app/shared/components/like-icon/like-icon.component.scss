@@ -1,0 +1,36 @@
+@import 'style-variables';
+
+button {
+  position: relative;
+  display: inline-block;
+  color: $color-accent;
+  font-size: $font-size-h2;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $padding-medium;
+  background-color: transparent;
+  font-size: $font-size-h3;
+
+  .title {
+    text-transform: uppercase;
+    font-size: $font-size-h5;
+  }
+
+  .badge {
+    position: absolute;
+    top: calc($font-size-h3 - 32px);
+    left: calc($font-size-h3 - 6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: $border-radius-round;
+    padding: $padding-small;
+    background-color: $color-accent;
+    color: $color-text-dark;
+    font-size: $font-size-badge;
+    width: $size-badge;
+    height: $size-badge;
+  }
+}

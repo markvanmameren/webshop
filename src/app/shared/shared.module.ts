@@ -10,7 +10,8 @@ import { HeaderComponent } from './components/header/header.component'
 import { ProductCardComponent } from './components/product-card/product-card.component'
 import { ProductListComponent } from './pages/product-list/product-list.component'
 import { NumberAsEuroPipe } from './pipes/number-as-euro.pipe';
-import { ProductDetailComponent } from './pages/product-detail/product-detail.component'
+import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
+import { LikeIconComponent } from './components/like-icon/like-icon.component'
 
 @NgModule({
   imports: [
@@ -28,6 +29,7 @@ import { ProductDetailComponent } from './pages/product-detail/product-detail.co
     HeaderComponent,
     FooterComponent,
     ProductDetailComponent,
+    LikeIconComponent,
   ],
   exports: [
     ProductListComponent,

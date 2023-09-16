@@ -2,4 +2,8 @@
   <a routerLink="/">
     <h1><fa-icon [icon]="faShop"></fa-icon> Webshop</h1>
   </a>
+  <shop-like-icon
+    [badge]="3"
+    (onclick)="handleLikeClicked()"
+  ></shop-like-icon>
 </header>
