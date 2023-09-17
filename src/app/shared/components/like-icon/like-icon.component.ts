@@ -11,14 +11,14 @@ export class LikeIconComponent {
   @Input() liked = false
   @Input() badge = 0
   @Input() title?: string
-  @Output() likeClicked = new EventEmitter()
+  @Output() likeClicked = new EventEmitter<Event>()
 
   // icons
   public faHeartEmpty = faHeartEmpty
   public faHeartFilled = faHeartFilled
 
   public handleClick(event: Event): void {
-    this.likeClicked.emit()
+    this.likeClicked.emit(event)
     event.stopPropagation()
   }
 }

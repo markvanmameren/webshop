@@ -1,3 +1,10 @@
-<ng-container *ngFor="let product of products$ | async">
-  <shop-product-card [product]="product"></shop-product-card>
-</ng-container>
+<shop-error-message
+  *ngIf="errorMessage$ | async as errorMessage; else showProducts"
+  [errorMessage]="errorMessage"
+></shop-error-message>
+<ng-template #showProducts>
+  <shop-product-card
+    *ngFor="let product of products$ | async"
+    [product]="product"
+  ></shop-product-card>
+</ng-template>

@@ -1,0 +1,14 @@
+<p
+  *ngIf="errorMessage"
+  class="error"
+>
+  <fa-icon
+    class="icon"
+    [icon]="faXmark"
+    size="xl"
+  ></fa-icon>
+  <span
+    class="text"
+    [innerText]="errorMessage"
+  ></span>
+</p>

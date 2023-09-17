@@ -6,11 +6,11 @@ import { IProduct } from 'src/app/shared/interfaces/product.interface'
 @Injectable({
   providedIn: 'root',
 })
-export class ProductService {
-  public constructor(private readonly httpClient: HttpClient) {}
-
+export class ProductsService {
   private readonly baseUrl =
-    'https://64f326d5edfa0459f6c65915.mockapi.io/products'
+    'https://64f326d5edfa0459f6c65914.mockapi.io/products'
+
+  public constructor(private readonly httpClient: HttpClient) {}
 
   public getProducts(): Observable<IProduct[]> {
     return this.httpClient.get<IProduct[]>(`${this.baseUrl}`)

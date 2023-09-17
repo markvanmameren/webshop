@@ -16,7 +16,10 @@
       ></p>
     </div>
     <aside>
-      <shop-like-icon></shop-like-icon>
+      <shop-like-icon
+        [liked]="product.liked"
+        (likeClicked)="handleLikeClicked($event)"
+      ></shop-like-icon>
     </aside>
   </footer>
 </a>

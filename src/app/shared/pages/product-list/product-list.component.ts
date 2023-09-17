@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core'
-import { Observable } from 'rxjs'
-import { ProductService } from 'src/app/shared/services/product.service'
-import { IProduct } from '../../interfaces/product.interface'
+import { Store } from '@ngrx/store'
+import { getProductsAction } from 'src/app/state/actions/products.actions'
+import {
+  selectAllProducts,
+  selectProductsError,
+} from 'src/app/state/selectors/products.selectors'
 
 @Component({
   selector: 'shop-product-list',
@@ -9,11 +12,12 @@ import { IProduct } from '../../interfaces/product.interface'
   styleUrls: ['./product-list.component.scss'],
 })
 export class ProductListComponent implements OnInit {
-  public products$: Observable<IProduct[]>
+  public products$ = this.store.select(selectAllProducts)
+  public errorMessage$ = this.store.select(selectProductsError)
 
-  public constructor(private readonly productService: ProductService) {}
+  public constructor(private readonly store: Store) {}
 
   public ngOnInit(): void {
-    this.products$ = this.productService.getProducts()
+    this.store.dispatch(getProductsAction())
   }
 }

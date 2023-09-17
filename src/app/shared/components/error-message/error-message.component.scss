@@ -1,0 +1,14 @@
+@import 'style-variables';
+
+.error {
+  background-color: $color-error;
+  color: $color-text-invert;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $padding-medium;
+
+  .text {
+    padding-left: $padding-small;
+  }
+}

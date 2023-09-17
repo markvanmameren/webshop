@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
+import { Store } from '@ngrx/store'
 import { Observable, filter, map, switchMap } from 'rxjs'
+import { selectProductsById } from 'src/app/state/selectors/products.selectors'
 import { IProduct } from '../../interfaces/product.interface'
-import { ProductService } from '../../services/product.service'
+import { ProductsService } from '../../services/products.service'
 
 @Component({
   selector: 'shop-product-detail',
@@ -14,14 +16,16 @@ export class ProductDetailComponent implements OnInit {
 
   public constructor(
     private readonly activatedRoute: ActivatedRoute,
-    private readonly productService: ProductService
+    private readonly store: Store,
+    private readonly productsService: ProductsService
   ) {}
 
   public ngOnInit(): void {
     this.product$ = this.activatedRoute.paramMap.pipe(
-      filter((params) => params.has('id')),
-      map((params) => params.get('id') as string),
-      switchMap((id) => this.productService.getProductById(id))
+      map((params) => params.get('id')),
+      filter((id): id is string => id !== null),
+      switchMap((id) => this.store.select(selectProductsById(id))),
+      filter((product): product is IProduct => product !== undefined)
     )
   }
 }
