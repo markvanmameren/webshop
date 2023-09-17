@@ -1,10 +1,18 @@
-<shop-error-message
-  *ngIf="errorMessage$ | async as errorMessage; else showProducts"
-  [errorMessage]="errorMessage"
-></shop-error-message>
-<ng-template #showProducts>
-  <shop-product-card
-    *ngFor="let product of products$ | async"
-    [product]="product"
-  ></shop-product-card>
+<ng-container *ngIf="isLoading$ | async as isLoading; else content">
+  <shop-loader [isLarge]="true"></shop-loader>
+</ng-container>
+
+<ng-template #content>
+  <ng-container
+    *ngIf="errorMessage$ | async as errorMessage; else productsList"
+  >
+    <shop-error-message [errorMessage]="errorMessage"></shop-error-message>
+  </ng-container>
+
+  <ng-template #productsList>
+    <shop-product-card
+      *ngFor="let product of products$ | async"
+      [product]="product"
+    ></shop-product-card>
+  </ng-template>
 </ng-template>

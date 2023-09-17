@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store'
 import { getProductsAction } from 'src/app/state/actions/products.actions'
 import {
   selectAllProducts,
+  selectLoading,
   selectProductsError,
 } from 'src/app/state/selectors/products.selectors'
 
@@ -12,6 +13,7 @@ import {
   styleUrls: ['./product-list.component.scss'],
 })
 export class ProductListComponent implements OnInit {
+  public isLoading$ = this.store.select(selectLoading)
   public products$ = this.store.select(selectAllProducts)
   public errorMessage$ = this.store.select(selectProductsError)
 

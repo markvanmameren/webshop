@@ -1,5 +1,6 @@
 import { createReducer, on } from '@ngrx/store'
 import {
+  getProductsAction,
   getProductsFailureAction,
   getProductsSuccessAction,
 } from '../actions/products.actions'
@@ -9,11 +10,23 @@ import { IProductsFeature } from '../interfaces/products-feature.interface'
 export const productsReducer = createReducer(
   initialProductsState,
   on(
+    getProductsAction,
+    (state): IProductsFeature => ({ ...state, isLoading: true })
+  ),
+  on(
     getProductsSuccessAction,
-    (state, { products }): IProductsFeature => ({ ...state, products })
+    (state, { products }): IProductsFeature => ({
+      ...state,
+      isLoading: false,
+      products,
+    })
   ),
   on(
     getProductsFailureAction,
-    (state, { error }): IProductsFeature => ({ ...state, error })
+    (state, { error }): IProductsFeature => ({
+      ...state,
+      isLoading: false,
+      error,
+    })
   )
 )

@@ -5,6 +5,11 @@ import { IProductsFeature } from '../interfaces/products-feature.interface'
 const selectProductsFeature =
   createFeatureSelector<IProductsFeature>(productsFeatureKey)
 
+export const selectLoading = createSelector(
+  selectProductsFeature,
+  ({ isLoading }) => isLoading
+)
+
 export const selectAllProducts = createSelector(
   selectProductsFeature,
   ({ products }) => products

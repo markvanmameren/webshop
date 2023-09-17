@@ -8,7 +8,7 @@ import { IProduct } from 'src/app/shared/interfaces/product.interface'
 })
 export class ProductsService {
   private readonly baseUrl =
-    'https://64f326d5edfa0459f6c65914.mockapi.io/products'
+    'https://64f326d5edfa0459f6c65915.mockapi.io/products'
 
   public constructor(private readonly httpClient: HttpClient) {}
 
