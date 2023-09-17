@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core'
+import { Store } from '@ngrx/store'
+import { togglelikeProductInitiateAction } from 'src/app/state/actions/products.actions'
 import { IProduct } from '../../interfaces/product.interface'
 
 @Component({
@@ -9,7 +11,9 @@ import { IProduct } from '../../interfaces/product.interface'
 export class ProductCardComponent {
   @Input() product: IProduct
 
-  public handleLikeClicked(id: string) {
-    alert(this.product.id)
+  constructor(private readonly store: Store) {}
+
+  public handleLikeClicked(id: string): void {
+    this.store.dispatch(togglelikeProductInitiateAction({ id }))
   }
 }

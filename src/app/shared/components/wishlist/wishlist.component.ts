@@ -1,5 +1,6 @@
 import { Component } from '@angular/core'
 import { Store } from '@ngrx/store'
+import { togglelikeProductInitiateAction } from 'src/app/state/actions/products.actions'
 import {
   selectCountLikedProducts,
   selectIsWishlistOpen,
@@ -20,7 +21,7 @@ export class WishlistComponent {
 
   public constructor(private readonly store: Store) {}
 
-  public handleLikeClicked(id: string) {
-    alert(id)
+  public handleLikeClicked(id: string): void {
+    this.store.dispatch(togglelikeProductInitiateAction({ id }))
   }
 }

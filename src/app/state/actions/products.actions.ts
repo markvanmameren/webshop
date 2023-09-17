@@ -4,28 +4,35 @@ import { IProduct } from 'src/app/shared/interfaces/product.interface'
 export const productsFeatureKey = 'products'
 export const productsTypePrefix = `[${productsFeatureKey}]`
 
-export const getProductsAction = createAction(
-  `${productsTypePrefix} Get products`
+export const getAllProductsInitiateAction = createAction(
+  `${productsTypePrefix} Get all products - Initiate`
 )
-export const getProductsSuccessAction = createAction(
-  `${productsTypePrefix} Get products - Success`,
+
+export const getAllProductsSuccessAction = createAction(
+  `${productsTypePrefix} Get all products - Success`,
   props<{ products: IProduct[] }>()
 )
-export const getProductsFailureAction = createAction(
-  `${productsTypePrefix} Get products - Failure`,
+
+export const getAllProductsFailureAction = createAction(
+  `${productsTypePrefix} Get all products - Failure`,
   props<{ error: string }>()
 )
-export const getProductByIdAction = createAction(
-  `${productsTypePrefix} Get product by ID`,
+
+export const toggleWishlistAction = createAction(
+  `${productsTypePrefix} Toggle wishlist`
+)
+
+export const togglelikeProductInitiateAction = createAction(
+  `${productsTypePrefix} Toggle like product - Initiate`,
   props<{ id: string }>()
 )
-export const getProductByIdSuccessAction = createAction(
-  `${productsTypePrefix} Get product by ID - Success`,
-  props<{ product: IProduct }>()
+
+export const togglelikeProductSuccessAction = createAction(
+  `${productsTypePrefix} Toggle like product - Success`,
+  props<{ updatedProduct: IProduct }>()
 )
-export const getProductByIdFailureAction = createAction(
-  `${productsTypePrefix} Get product by ID - Failutre`
-)
-export const toggleWishlistAction = createAction(
-  `${productsTypePrefix} toggleWishlist`
+
+export const togglelikeProductFailureAction = createAction(
+  `${productsTypePrefix} Toggle like product - Failure`,
+  props<{ error: string }>()
 )

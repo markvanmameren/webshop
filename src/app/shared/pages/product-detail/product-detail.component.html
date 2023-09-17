@@ -1,56 +1,75 @@
-<ng-container *ngIf="product$ | async as product">
-  <div class="flex-container">
-    <div class="info">
-      <h2
-        class="title"
-        [innerHTML]="product.title"
-      ></h2>
-      <div
-        class="image"
-        [style.background-image]="'url(' + product.imageUrl + ')'"
-        [ariaLabel]="product.title"
-      ></div>
-      <p
-        class="description"
-        [innerHTML]="product.description"
-      ></p>
-      <footer>
-        <p
-          class="price"
-          [innerHTML]="product.price | numberAsEuro"
-        ></p>
-        <shop-like-icon
-          [liked]="product.liked"
-          title="add to wishlist"
-        ></shop-like-icon>
-      </footer>
-    </div>
-    <aside>
-      <table class="details">
-        <caption>
-          Details
-        </caption>
-        <tr>
-          <th>Category</th>
-          <td [innerHTML]="product.category"></td>
-        </tr>
-        <tr>
-          <th>Material</th>
-          <td [innerHTML]="product.material"></td>
-        </tr>
-        <tr>
-          <th>Tag</th>
-          <td [innerHTML]="product.tag"></td>
-        </tr>
-        <tr>
-          <th>Reseller</th>
-          <td [innerHTML]="product.reseller"></td>
-        </tr>
-        <tr>
-          <th>Date added</th>
-          <td [innerHTML]="product.dateAdded | date"></td>
-        </tr>
-      </table>
-    </aside>
-  </div>
+<ng-container *ngIf="isLoading$ | async as isLoading; else content">
+  <shop-loader [isLarge]="true"></shop-loader>
 </ng-container>
+
+<ng-template #content>
+  <ng-container
+    *ngIf="errorMessage$ | async as errorMessage; else productDetail"
+  >
+    <shop-error-message [errorMessage]="errorMessage"></shop-error-message>
+  </ng-container>
+
+  <ng-template #productDetail>
+    <ng-container *ngIf="product$ | async as product; else notFound">
+      <div class="flex-container">
+        <div class="info">
+          <h2
+            class="title"
+            [innerHTML]="product.title"
+          ></h2>
+          <div
+            class="image"
+            [style.background-image]="'url(' + product.imageUrl + ')'"
+            [ariaLabel]="product.title"
+          ></div>
+          <p
+            class="description"
+            [innerHTML]="product.description"
+          ></p>
+          <footer>
+            <p
+              class="price"
+              [innerHTML]="product.price | numberAsEuro"
+            ></p>
+            <shop-like-icon
+              [liked]="product.liked"
+              [showTitle]="true"
+              (likeClicked)="handleLikeClicked(product.id)"
+            ></shop-like-icon>
+          </footer>
+        </div>
+        <aside>
+          <table class="details">
+            <caption>
+              Details
+            </caption>
+            <tr>
+              <th>Category</th>
+              <td [innerHTML]="product.category"></td>
+            </tr>
+            <tr>
+              <th>Material</th>
+              <td [innerHTML]="product.material"></td>
+            </tr>
+            <tr>
+              <th>Tag</th>
+              <td [innerHTML]="product.tag"></td>
+            </tr>
+            <tr>
+              <th>Reseller</th>
+              <td [innerHTML]="product.reseller"></td>
+            </tr>
+            <tr>
+              <th>Date added</th>
+              <td [innerHTML]="product.dateAdded | date"></td>
+            </tr>
+          </table>
+        </aside>
+      </div>
+    </ng-container>
+  </ng-template>
+</ng-template>
+
+<ng-template #notFound>
+  <shop-error-message [errorMessage]="'Product not found'"></shop-error-message>
+</ng-template>

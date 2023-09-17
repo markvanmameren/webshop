@@ -1,9 +1,10 @@
 import { createReducer, on } from '@ngrx/store'
 import {
-  getProductsAction,
-  getProductsFailureAction,
-  getProductsSuccessAction,
+  getAllProductsFailureAction,
+  getAllProductsInitiateAction,
+  getAllProductsSuccessAction,
   toggleWishlistAction,
+  togglelikeProductSuccessAction,
 } from '../actions/products.actions'
 import { initialProductsState } from '../initial-state/products.initial-state'
 import { IProductsFeature } from '../interfaces/products-feature.interface'
@@ -11,19 +12,20 @@ import { IProductsFeature } from '../interfaces/products-feature.interface'
 export const productsReducer = createReducer(
   initialProductsState,
   on(
-    getProductsAction,
+    getAllProductsInitiateAction,
     (state): IProductsFeature => ({ ...state, isLoading: true })
   ),
   on(
-    getProductsSuccessAction,
+    getAllProductsSuccessAction,
     (state, { products }): IProductsFeature => ({
       ...state,
       isLoading: false,
+      error: null,
       products,
     })
   ),
   on(
-    getProductsFailureAction,
+    getAllProductsFailureAction,
     (state, { error }): IProductsFeature => ({
       ...state,
       isLoading: false,
@@ -35,6 +37,19 @@ export const productsReducer = createReducer(
     (state): IProductsFeature => ({
       ...state,
       isWishlistOpen: !state.isWishlistOpen,
+    })
+  ),
+  on(
+    togglelikeProductSuccessAction,
+    (state, { updatedProduct }): IProductsFeature => ({
+      ...state,
+      isLoading: false,
+      error: null,
+      products: [
+        ...state.products.map((product) =>
+          product.id === updatedProduct.id ? updatedProduct : product
+        ),
+      ],
     })
   )
 )

@@ -4,7 +4,7 @@
   </a>
   <ng-container *ngIf="(isWishlistOpen$ | async) === false; else closeButton">
     <shop-like-icon
-      [badge]="3"
+      [badge]="(wishlistCount$ | async) ?? 0"
       (likeClicked)="toggleWishlist()"
     ></shop-like-icon>
   </ng-container>

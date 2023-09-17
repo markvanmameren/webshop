@@ -1,11 +1,17 @@
 import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
 import { Store } from '@ngrx/store'
-import { Observable, combineLatestWith, filter, map } from 'rxjs'
-import { getProductsAction } from 'src/app/state/actions/products.actions'
-import { selectAllProducts } from 'src/app/state/selectors/products.selectors'
+import { Observable, filter, map, switchMap } from 'rxjs'
+import {
+  getAllProductsInitiateAction,
+  togglelikeProductInitiateAction,
+} from 'src/app/state/actions/products.actions'
+import {
+  selectLoading,
+  selectProductsById,
+  selectProductsError,
+} from 'src/app/state/selectors/products.selectors'
 import { IProduct } from '../../interfaces/product.interface'
-import { ProductsService } from '../../services/products.service'
 
 @Component({
   selector: 'shop-product-detail',
@@ -13,26 +19,26 @@ import { ProductsService } from '../../services/products.service'
   styleUrls: ['./product-detail.component.scss'],
 })
 export class ProductDetailComponent implements OnInit {
-  public product$: Observable<IProduct>
+  public isLoading$ = this.store.select(selectLoading)
+  public product$: Observable<IProduct | undefined>
+  public errorMessage$ = this.store.select(selectProductsError)
 
   public constructor(
     private readonly activatedRoute: ActivatedRoute,
-    private readonly store: Store,
-    private readonly productsService: ProductsService
+    private readonly store: Store
   ) {}
 
   public ngOnInit(): void {
+    this.store.dispatch(getAllProductsInitiateAction())
+
     this.product$ = this.activatedRoute.paramMap.pipe(
       map((params) => params.get('id')),
       filter((id): id is string => id !== null),
-      combineLatestWith(this.store.select(selectAllProducts)),
-      map(([id, products]) => {
-        const matchedProduct = products.find((product) => product.id === id)
-        return matchedProduct !== undefined
-          ? matchedProduct
-          : this.store.dispatch(getProductsAction())
-      }),
-      filter((product): product is IProduct => product !== undefined)
+      switchMap((id) => this.store.select(selectProductsById(id)))
     )
+  }
+
+  public handleLikeClicked(id: string): void {
+    this.store.dispatch(togglelikeProductInitiateAction({ id }))
   }
 }

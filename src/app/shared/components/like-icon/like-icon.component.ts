@@ -10,7 +10,7 @@ import { faHeart as faHeartFilled } from '@fortawesome/free-solid-svg-icons'
 export class LikeIconComponent {
   @Input() liked = false
   @Input() badge = 0
-  @Input() title?: string
+  @Input() showTitle = false
   @Output() likeClicked = new EventEmitter<Event>()
 
   // icons

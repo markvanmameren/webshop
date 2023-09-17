@@ -4,9 +4,9 @@
     [icon]="liked ? faHeartFilled : faHeartEmpty"
   ></fa-icon>
   <span
-    *ngIf="title"
+    *ngIf="showTitle"
     class="title"
-    [innerHTML]="title"
+    [innerHTML]="liked ? 'Remove from wishlist' : 'Add to wishlist'"
   ></span>
   <span
     *ngIf="badge > 0"
