@@ -2,8 +2,15 @@
   <a routerLink="/">
     <h1><fa-icon [icon]="faShop"></fa-icon> Webshop</h1>
   </a>
-  <shop-like-icon
-    [badge]="3"
-    (likeClicked)="handleLikeClicked()"
-  ></shop-like-icon>
+  <ng-container *ngIf="(isWishlistOpen$ | async) === false; else closeButton">
+    <shop-like-icon
+      [badge]="3"
+      (likeClicked)="toggleWishlist()"
+    ></shop-like-icon>
+  </ng-container>
+  <ng-template #closeButton>
+    <button (click)="toggleWishlist()">
+      <fa-icon [icon]="faXmark"></fa-icon>
+    </button>
+  </ng-template>
 </header>

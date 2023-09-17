@@ -42,6 +42,9 @@ $size-badge: 20px;
 $size-product-detail-image-height: 260px;
 $size-max-content-width: 1280px;
 $size-loader: 60px;
+$size-max-wishlist-width: 400px;
+$size-min-wishlist-row-height: 60px;
+$size-wishlist-columns: auto 100px 24px;
 
 // borders
 $border-radius-default: 5px;
@@ -59,6 +62,5 @@ $color-text-invert: #f8f8f8;
 $color-background-body: #f8f8f8;
 $color-background-default: #e4e4e4;
 $color-accent: #e4a226;
-$color-accent-active: #fae291;
 $color-error: #b71c1c;
 $color-success: #1b5e20;

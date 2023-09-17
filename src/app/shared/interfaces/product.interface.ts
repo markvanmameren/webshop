@@ -8,6 +8,6 @@ export interface IProduct {
   dateAdded: string
   reseller: string
   imageUrl: string
-  price: number
+  price: string
   liked: boolean
 }

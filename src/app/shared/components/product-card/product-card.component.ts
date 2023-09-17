@@ -9,7 +9,7 @@ import { IProduct } from '../../interfaces/product.interface'
 export class ProductCardComponent {
   @Input() product: IProduct
 
-  public handleLikeClicked(event: Event) {
+  public handleLikeClicked(id: string) {
     alert(this.product.id)
   }
 }

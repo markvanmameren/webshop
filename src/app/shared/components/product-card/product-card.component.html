@@ -18,7 +18,7 @@
     <aside>
       <shop-like-icon
         [liked]="product.liked"
-        (likeClicked)="handleLikeClicked($event)"
+        (likeClicked)="handleLikeClicked(product.id)"
       ></shop-like-icon>
     </aside>
   </footer>

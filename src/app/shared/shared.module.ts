@@ -9,6 +9,7 @@ import { FooterComponent } from './components/footer/footer.component'
 import { HeaderComponent } from './components/header/header.component'
 import { LikeIconComponent } from './components/like-icon/like-icon.component'
 import { ProductCardComponent } from './components/product-card/product-card.component'
+import { WishlistComponent } from './components/wishlist/wishlist.component'
 import { LoaderComponent } from './loader/loader.component'
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component'
 import { ProductListComponent } from './pages/product-list/product-list.component'
@@ -32,6 +33,7 @@ import { NumberAsEuroPipe } from './pipes/number-as-euro.pipe'
     LikeIconComponent,
     ErrorMessageComponent,
     LoaderComponent,
+    WishlistComponent,
   ],
   exports: [
     ProductListComponent,
@@ -40,6 +42,7 @@ import { NumberAsEuroPipe } from './pipes/number-as-euro.pipe'
     HeaderComponent,
     FooterComponent,
     LoaderComponent,
+    WishlistComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

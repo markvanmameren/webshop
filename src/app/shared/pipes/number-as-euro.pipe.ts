@@ -4,10 +4,10 @@ import { Pipe, PipeTransform } from '@angular/core'
   name: 'numberAsEuro',
 })
 export class NumberAsEuroPipe implements PipeTransform {
-  public transform(value: number): string {
+  public transform(value: string | number): string {
     return Intl.NumberFormat('nl-NL', {
       style: 'currency',
       currency: 'EUR',
-    }).format(value)
+    }).format(Number(value))
   }
 }

@@ -3,6 +3,7 @@ import {
   getProductsAction,
   getProductsFailureAction,
   getProductsSuccessAction,
+  toggleWishlistAction,
 } from '../actions/products.actions'
 import { initialProductsState } from '../initial-state/products.initial-state'
 import { IProductsFeature } from '../interfaces/products-feature.interface'
@@ -27,6 +28,13 @@ export const productsReducer = createReducer(
       ...state,
       isLoading: false,
       error,
+    })
+  ),
+  on(
+    toggleWishlistAction,
+    (state): IProductsFeature => ({
+      ...state,
+      isWishlistOpen: !state.isWishlistOpen,
     })
   )
 )

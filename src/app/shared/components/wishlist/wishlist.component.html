@@ -1,0 +1,48 @@
+<aside
+  *ngIf="isWishlistOpen$ | async"
+  class="wishlist"
+>
+  <div
+    class="row header"
+    role="row"
+  >
+    <span
+      class="title"
+      role="columnheader"
+      >My Wishlist ({{ (count$ | async) ?? 0 }} items)</span
+    >
+  </div>
+  <article
+    *ngFor="let product of likedProducts$ | async"
+    class="row"
+    role="row"
+  >
+    <span
+      class="title"
+      [innerText]="product.title"
+      role="columnheader"
+    ></span>
+    <span
+      class="price"
+      [innerText]="product.price | numberAsEuro"
+    ></span>
+    <shop-like-icon
+      [liked]="true"
+      (likeClicked)="handleLikeClicked(product.id)"
+    ></shop-like-icon>
+  </article>
+  <div
+    class="row header"
+    role="row"
+  >
+    <span
+      class="title"
+      role="columnheader"
+      >Total</span
+    >
+    <span
+      class="price"
+      [innerText]="(sum$ | async) ?? 0 | numberAsEuro"
+    ></span>
+  </div>
+</aside>

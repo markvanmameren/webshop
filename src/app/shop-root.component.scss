@@ -1,8 +1,9 @@
 @import 'style-variables';
 
 main {
-  padding: $padding-large;
-  min-height: calc(100vh - ($size-header-footer-height * 2));
+  padding: calc($size-header-footer-height + $padding-large) $padding-large
+    $padding-large;
+  min-height: calc(100vh - ($size-header-footer-height));
   width: 100%;
   max-width: $size-max-content-width;
   margin: 0 auto;

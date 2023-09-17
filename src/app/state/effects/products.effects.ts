@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { Actions, createEffect, ofType } from '@ngrx/effects'
-import { catchError, delay, map, mergeMap, of } from 'rxjs'
+import { catchError, map, mergeMap, of } from 'rxjs'
 import { ProductsService } from 'src/app/shared/services/products.service'
 import {
   getProductsAction,
@@ -21,7 +21,6 @@ export class ProductsEffects {
       ofType(getProductsAction),
       mergeMap(() =>
         this.productsService.getProducts().pipe(
-          delay(5000),
           map((products) => getProductsSuccessAction({ products })),
           catchError((error: HttpErrorResponse) =>
             of(getProductsFailureAction({ error: error.message }))

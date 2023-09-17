@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
 import { Store } from '@ngrx/store'
-import { Observable, filter, map, switchMap } from 'rxjs'
-import { selectProductsById } from 'src/app/state/selectors/products.selectors'
+import { Observable, combineLatestWith, filter, map } from 'rxjs'
+import { getProductsAction } from 'src/app/state/actions/products.actions'
+import { selectAllProducts } from 'src/app/state/selectors/products.selectors'
 import { IProduct } from '../../interfaces/product.interface'
 import { ProductsService } from '../../services/products.service'
 
@@ -24,7 +25,13 @@ export class ProductDetailComponent implements OnInit {
     this.product$ = this.activatedRoute.paramMap.pipe(
       map((params) => params.get('id')),
       filter((id): id is string => id !== null),
-      switchMap((id) => this.store.select(selectProductsById(id))),
+      combineLatestWith(this.store.select(selectAllProducts)),
+      map(([id, products]) => {
+        const matchedProduct = products.find((product) => product.id === id)
+        return matchedProduct !== undefined
+          ? matchedProduct
+          : this.store.dispatch(getProductsAction())
+      }),
       filter((product): product is IProduct => product !== undefined)
     )
   }
