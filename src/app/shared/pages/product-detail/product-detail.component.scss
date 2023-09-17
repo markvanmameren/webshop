@@ -4,11 +4,6 @@
   display: flex;
   flex-direction: column;
 
-  .title {
-    padding: $padding-small 0 $padding-large;
-    text-align: center;
-  }
-
   .flex-container {
     display: flex;
     gap: $padding-medium;
@@ -31,13 +26,13 @@
       footer {
         width: 100%;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
         gap: $padding-large;
 
         .price {
-          font-size: $font-size-h6;
-          color: $color-text-light;
+          font-size: $font-size-h4;
+          color: $color-accent;
         }
       }
     }
@@ -82,10 +77,6 @@
       & > * {
         width: 100%;
       }
-
-      .info {
-        order: 1;
-      }
     }
   }
 }
@@ -95,7 +86,7 @@
   :host {
     .flex-container {
       flex-direction: row;
-      justify-content: space-evenly;
+      justify-content: space-between;
       align-items: flex-start;
     }
   }

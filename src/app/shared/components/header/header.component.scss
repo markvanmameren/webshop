@@ -1,11 +1,18 @@
 @import 'style-variables';
 
-header {
-  height: $size-header-footer-height;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: $padding-large;
-  padding: $padding-large;
+:host {
   background-color: $color-background-default;
+  display: flex;
+  justify-content: center;
+
+  header {
+    width: 100%;
+    max-width: $size-max-content-width;
+    height: $size-header-footer-height;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: $padding-large;
+    padding: $padding-large;
+  }
 }

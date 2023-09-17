@@ -7,11 +7,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 import { StoreModule } from '@ngrx/store'
 import { FooterComponent } from './components/footer/footer.component'
 import { HeaderComponent } from './components/header/header.component'
-import { ProductCardComponent } from './components/product-card/product-card.component'
-import { ProductListComponent } from './pages/product-list/product-list.component'
-import { NumberAsEuroPipe } from './pipes/number-as-euro.pipe';
-import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { LikeIconComponent } from './components/like-icon/like-icon.component'
+import { ProductCardComponent } from './components/product-card/product-card.component'
+import { ProductDetailComponent } from './pages/product-detail/product-detail.component'
+import { ProductListComponent } from './pages/product-list/product-list.component'
+import { NumberAsEuroPipe } from './pipes/number-as-euro.pipe'
 
 @NgModule({
   imports: [

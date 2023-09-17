@@ -1,4 +1,4 @@
-<button (click)="onclick.emit()">
+<button (click)="handleClick($event); (false)">
   <fa-icon
     size="1x"
     [icon]="liked ? faHeartFilled : faHeartEmpty"

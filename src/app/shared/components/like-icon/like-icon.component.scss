@@ -12,6 +12,11 @@ button {
   gap: $padding-medium;
   background-color: transparent;
   font-size: $font-size-h3;
+  transition: transform $transition-duration-default $transition-easing-default;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 
   .title {
     text-transform: uppercase;

@@ -3,4 +3,7 @@
 main {
   padding: $padding-large;
   min-height: calc(100vh - ($size-header-footer-height * 2));
+  width: 100%;
+  max-width: $size-max-content-width;
+  margin: 0 auto;
 }
