@@ -1,7 +1,7 @@
 import { ActionReducerMap } from '@ngrx/store'
 import { productsFeatureKey } from '../actions/product.actions'
 import { IAppState } from '../interfaces/app-state.interface'
-import { createAppReducerMap } from './app.reducer-map.'
+import { createAppReducerMap } from './app.reducer-map'
 import { productReducer } from './product.reducer'
 
 describe('appReducerMap', () => {

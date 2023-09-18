@@ -2,7 +2,7 @@ import { createFeatureSelector, createSelector } from '@ngrx/store'
 import { productsFeatureKey } from '../actions/product.actions'
 import { IProductFeature } from '../interfaces/product-feature.interface'
 
-const selectProductsFeature =
+export const selectProductsFeature =
   createFeatureSelector<IProductFeature>(productsFeatureKey)
 
 export const selectIsWishlistOpen = createSelector(
@@ -17,7 +17,7 @@ export const selectProductsLoading = createSelector(
 
 export const selectProductsError = createSelector(
   selectProductsFeature,
-  ({ error }) => error
+  ({ errorMessage }) => errorMessage
 )
 
 export const selectAllProducts = createSelector(

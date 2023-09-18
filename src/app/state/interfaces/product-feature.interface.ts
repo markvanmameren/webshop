@@ -4,5 +4,5 @@ export interface IProductFeature {
   isWishlistOpen: boolean
   isLoading: boolean
   products: IProduct[]
-  error: string | null
+  errorMessage: string | null
 }

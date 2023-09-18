@@ -11,7 +11,7 @@ import { productsFeatureKey } from './state/actions/product.actions'
 import { ProductEffects } from './state/effects/product.effects'
 import { IAppState } from './state/interfaces/app-state.interface'
 import { IProductFeature } from './state/interfaces/product-feature.interface'
-import { createAppReducerMap } from './state/reducers/app.reducer-map.'
+import { createAppReducerMap } from './state/reducers/app.reducer-map'
 import { productReducer } from './state/reducers/product.reducer'
 
 @NgModule({

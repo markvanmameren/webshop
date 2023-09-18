@@ -1,6 +1,6 @@
 import { IAppState } from '../interfaces/app-state.interface'
-import { initialProductsState } from './product.initial-state'
+import { getInitialProductsState } from './product.initial-state'
 
-export const initialAppState: IAppState = {
-  products: initialProductsState,
-}
+export const getInitialAppState = (): IAppState => ({
+  products: getInitialProductsState(),
+})

@@ -6,11 +6,11 @@ import {
   toggleWishlistAction,
   togglelikeProductSuccessAction,
 } from '../actions/product.actions'
-import { initialProductsState } from '../initial-state/product.initial-state'
+import { getInitialProductsState } from '../initial-state/product.initial-state'
 import { IProductFeature } from '../interfaces/product-feature.interface'
 
 export const productReducer = createReducer(
-  initialProductsState,
+  getInitialProductsState(),
   on(
     getAllProductsInitiateAction,
     (state): IProductFeature => ({ ...state, isLoading: true })
@@ -20,16 +20,16 @@ export const productReducer = createReducer(
     (state, { products }): IProductFeature => ({
       ...state,
       isLoading: false,
-      error: null,
+      errorMessage: null,
       products,
     })
   ),
   on(
     getAllProductsFailureAction,
-    (state, { errorMessage: error }): IProductFeature => ({
+    (state, { errorMessage }): IProductFeature => ({
       ...state,
       isLoading: false,
-      error,
+      errorMessage,
     })
   ),
   on(
@@ -44,10 +44,12 @@ export const productReducer = createReducer(
     (state, { updatedProduct }): IProductFeature => ({
       ...state,
       isLoading: false,
-      error: null,
+      errorMessage: null,
       products: [
         ...state.products.map((product) =>
-          product.id === updatedProduct.id ? updatedProduct : product
+          product.id === updatedProduct.id
+            ? { ...product, liked: updatedProduct.liked }
+            : product
         ),
       ],
     })
