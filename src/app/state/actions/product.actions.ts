@@ -15,7 +15,7 @@ export const getAllProductsSuccessAction = createAction(
 
 export const getAllProductsFailureAction = createAction(
   `${productsTypePrefix} Get all products - Failure`,
-  props<{ error: string }>()
+  props<{ errorMessage: string }>()
 )
 
 export const toggleWishlistAction = createAction(
@@ -34,5 +34,5 @@ export const togglelikeProductSuccessAction = createAction(
 
 export const togglelikeProductFailureAction = createAction(
   `${productsTypePrefix} Toggle like product - Failure`,
-  props<{ error: string }>()
+  props<{ errorMessage: string }>()
 )

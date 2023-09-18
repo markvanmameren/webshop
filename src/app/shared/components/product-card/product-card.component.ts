@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core'
 import { Store } from '@ngrx/store'
-import { togglelikeProductInitiateAction } from 'src/app/state/actions/products.actions'
+import { togglelikeProductInitiateAction } from 'src/app/state/actions/product.actions'
 import { IProduct } from '../../interfaces/product.interface'
 
 @Component({

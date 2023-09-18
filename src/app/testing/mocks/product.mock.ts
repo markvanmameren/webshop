@@ -1,6 +1,6 @@
 import { IProduct } from 'src/app/shared/interfaces/product.interface'
 
-export const getProductMock = (): IProduct => ({
+export const getMockProduct = (): IProduct => ({
   category: 'Automotive',
   dateAdded: '2023-06-10T13:52:09.010Z',
   description:

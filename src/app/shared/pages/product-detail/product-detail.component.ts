@@ -1,16 +1,17 @@
 import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { Store } from '@ngrx/store'
 import { Observable, filter, map, switchMap } from 'rxjs'
 import {
   getAllProductsInitiateAction,
   togglelikeProductInitiateAction,
-} from 'src/app/state/actions/products.actions'
+} from 'src/app/state/actions/product.actions'
 import {
   selectProductsById,
   selectProductsError,
   selectProductsLoading,
-} from 'src/app/state/selectors/products.selectors'
+} from 'src/app/state/selectors/product.selectors'
 import { IProduct } from '../../interfaces/product.interface'
 
 @Component({
@@ -22,6 +23,9 @@ export class ProductDetailComponent implements OnInit {
   public isLoading$ = this.store.select(selectProductsLoading)
   public errorMessage$ = this.store.select(selectProductsError)
   public product$: Observable<IProduct | undefined>
+
+  // icons
+  public faArrowLeft = faArrowLeft
 
   public constructor(
     private readonly activatedRoute: ActivatedRoute,

@@ -1,8 +1,8 @@
 import { ActionReducerMap } from '@ngrx/store'
-import { productsFeatureKey } from '../actions/products.actions'
+import { productsFeatureKey } from '../actions/product.actions'
 import { IAppState } from '../interfaces/app-state.interface'
-import { productsReducer } from './products.reducer'
+import { productReducer } from './product.reducer'
 
-export const appReducerMap: ActionReducerMap<IAppState> = {
-  [productsFeatureKey]: productsReducer,
-}
+export const createAppReducerMap = (): ActionReducerMap<IAppState> => ({
+  [productsFeatureKey]: productReducer,
+})

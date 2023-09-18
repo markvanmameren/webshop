@@ -4,9 +4,9 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'
 import { RouterTestingModule } from '@angular/router/testing'
 import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing'
 import { MockStore, provideMockStore } from '@ngrx/store/testing'
-import { togglelikeProductInitiateAction } from 'src/app/state/actions/products.actions'
+import { togglelikeProductInitiateAction } from 'src/app/state/actions/product.actions'
 import { IAppState } from 'src/app/state/interfaces/app-state.interface'
-import { getProductMock } from 'src/app/testing/mocks/product.mock'
+import { getMockProduct } from 'src/app/testing/mocks/product.mock'
 import { IProduct } from '../../interfaces/product.interface'
 import { NumberAsEuroPipe } from '../../pipes/number-as-euro.pipe'
 import { LikeIconComponent } from '../like-icon/like-icon.component'
@@ -30,7 +30,7 @@ describe('ProductCardComponent', () => {
     component = fixture.componentInstance
 
     mockStore = TestBed.inject(MockStore<IAppState>)
-    mockProduct = getProductMock()
+    mockProduct = getMockProduct()
     component.product = mockProduct
 
     fixture.detectChanges()

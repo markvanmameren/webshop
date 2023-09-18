@@ -1,5 +1,5 @@
-import { IProductsFeature } from './products-feature.interface'
+import { IProductFeature } from './product-feature.interface'
 
 export interface IAppState {
-  products: IProductsFeature
+  products: IProductFeature
 }

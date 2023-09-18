@@ -4,12 +4,12 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'
 import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing'
 
 import { MockStore, provideMockStore } from '@ngrx/store/testing'
-import { toggleWishlistAction } from 'src/app/state/actions/products.actions'
+import { toggleWishlistAction } from 'src/app/state/actions/product.actions'
 import { IAppState } from 'src/app/state/interfaces/app-state.interface'
 import {
   selectIsWishlistOpen,
   selectWishlistCount,
-} from 'src/app/state/selectors/products.selectors'
+} from 'src/app/state/selectors/product.selectors'
 import { HeaderComponent } from './header.component'
 
 describe('HeaderComponent', () => {

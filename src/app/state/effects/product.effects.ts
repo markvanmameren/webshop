@@ -4,7 +4,7 @@ import { Actions, concatLatestFrom, createEffect, ofType } from '@ngrx/effects'
 import { Store } from '@ngrx/store'
 import { catchError, filter, map, mergeMap, of, tap } from 'rxjs'
 import { IProduct } from 'src/app/shared/interfaces/product.interface'
-import { ProductsService } from 'src/app/shared/services/products.service'
+import { ProductService } from 'src/app/shared/services/product.service'
 import {
   getAllProductsFailureAction,
   getAllProductsInitiateAction,
@@ -12,25 +12,25 @@ import {
   togglelikeProductFailureAction,
   togglelikeProductInitiateAction,
   togglelikeProductSuccessAction,
-} from '../actions/products.actions'
-import { selectProductsById } from '../selectors/products.selectors'
+} from '../actions/product.actions'
+import { selectProductsById } from '../selectors/product.selectors'
 
 @Injectable()
-export class ProductsEffects {
+export class ProductEffects {
   constructor(
     private readonly actions$: Actions,
     private readonly store: Store,
-    private readonly productsService: ProductsService
+    private readonly productService: ProductService
   ) {}
 
   public getAllProductsEffect$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(getAllProductsInitiateAction),
       mergeMap(() =>
-        this.productsService.getProducts().pipe(
+        this.productService.getProducts().pipe(
           map((products) => getAllProductsSuccessAction({ products })),
           catchError((error: HttpErrorResponse) =>
-            of(getAllProductsFailureAction({ error: error.message }))
+            of(getAllProductsFailureAction({ errorMessage: error.message }))
           )
         )
       )
@@ -48,12 +48,12 @@ export class ProductsEffects {
       filter((product): product is IProduct => product !== undefined),
       map((product) => ({ ...product, liked: !product.liked } as IProduct)),
       mergeMap((product) =>
-        this.productsService.updateProduct(product).pipe(
+        this.productService.updateProduct(product).pipe(
           map((updatedProduct) =>
             togglelikeProductSuccessAction({ updatedProduct })
           ),
           catchError((error: HttpErrorResponse) =>
-            of(togglelikeProductFailureAction({ error: error.message }))
+            of(togglelikeProductFailureAction({ errorMessage: error.message }))
           )
         )
       )

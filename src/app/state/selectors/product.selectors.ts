@@ -1,9 +1,9 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store'
-import { productsFeatureKey } from '../actions/products.actions'
-import { IProductsFeature } from '../interfaces/products-feature.interface'
+import { productsFeatureKey } from '../actions/product.actions'
+import { IProductFeature } from '../interfaces/product-feature.interface'
 
 const selectProductsFeature =
-  createFeatureSelector<IProductsFeature>(productsFeatureKey)
+  createFeatureSelector<IProductFeature>(productsFeatureKey)
 
 export const selectIsWishlistOpen = createSelector(
   selectProductsFeature,

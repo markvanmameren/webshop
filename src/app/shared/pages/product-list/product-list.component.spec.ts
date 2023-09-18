@@ -2,18 +2,17 @@ import { ComponentFixture, TestBed } from '@angular/core/testing'
 
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'
 import { MockStore, provideMockStore } from '@ngrx/store/testing'
-import { getAllProductsInitiateAction } from 'src/app/state/actions/products.actions'
+import { getAllProductsInitiateAction } from 'src/app/state/actions/product.actions'
 import { IAppState } from 'src/app/state/interfaces/app-state.interface'
 import {
   selectAllProducts,
   selectProductsError,
   selectProductsLoading,
-} from 'src/app/state/selectors/products.selectors'
-import { getProductMock } from 'src/app/testing/mocks/product.mock'
-import { IProduct } from '../../interfaces/product.interface'
+} from 'src/app/state/selectors/product.selectors'
+import { getMockProducts } from 'src/app/testing/mocks/products.mock'
 import { ProductListComponent } from './product-list.component'
 
-fdescribe('ProductListComponent', () => {
+describe('ProductListComponent', () => {
   let component: ProductListComponent
   let fixture: ComponentFixture<ProductListComponent>
 
@@ -22,11 +21,7 @@ fdescribe('ProductListComponent', () => {
 
   const mockProductsLoading = false
   const mockProductsError = null
-  const mockProducts: IProduct[] = [
-    getProductMock(),
-    getProductMock(),
-    getProductMock(),
-  ]
+  const mockProducts = getMockProducts()
 
   beforeEach(() => {
     TestBed.configureTestingModule({

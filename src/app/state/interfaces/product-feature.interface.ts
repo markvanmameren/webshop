@@ -1,6 +1,6 @@
 import { IProduct } from 'src/app/shared/interfaces/product.interface'
 
-export interface IProductsFeature {
+export interface IProductFeature {
   isWishlistOpen: boolean
   isLoading: boolean
   products: IProduct[]

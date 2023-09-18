@@ -6,7 +6,7 @@ import { IProduct } from 'src/app/shared/interfaces/product.interface'
 @Injectable({
   providedIn: 'root',
 })
-export class ProductsService {
+export class ProductService {
   private readonly baseUrl =
     'https://64f326d5edfa0459f6c65915.mockapi.io/products'
 

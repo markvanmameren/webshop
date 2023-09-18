@@ -5,19 +5,19 @@ import {
   getAllProductsSuccessAction,
   toggleWishlistAction,
   togglelikeProductSuccessAction,
-} from '../actions/products.actions'
-import { initialProductsState } from '../initial-state/products.initial-state'
-import { IProductsFeature } from '../interfaces/products-feature.interface'
+} from '../actions/product.actions'
+import { initialProductsState } from '../initial-state/product.initial-state'
+import { IProductFeature } from '../interfaces/product-feature.interface'
 
-export const productsReducer = createReducer(
+export const productReducer = createReducer(
   initialProductsState,
   on(
     getAllProductsInitiateAction,
-    (state): IProductsFeature => ({ ...state, isLoading: true })
+    (state): IProductFeature => ({ ...state, isLoading: true })
   ),
   on(
     getAllProductsSuccessAction,
-    (state, { products }): IProductsFeature => ({
+    (state, { products }): IProductFeature => ({
       ...state,
       isLoading: false,
       error: null,
@@ -26,7 +26,7 @@ export const productsReducer = createReducer(
   ),
   on(
     getAllProductsFailureAction,
-    (state, { error }): IProductsFeature => ({
+    (state, { errorMessage: error }): IProductFeature => ({
       ...state,
       isLoading: false,
       error,
@@ -34,14 +34,14 @@ export const productsReducer = createReducer(
   ),
   on(
     toggleWishlistAction,
-    (state): IProductsFeature => ({
+    (state): IProductFeature => ({
       ...state,
       isWishlistOpen: !state.isWishlistOpen,
     })
   ),
   on(
     togglelikeProductSuccessAction,
-    (state, { updatedProduct }): IProductsFeature => ({
+    (state, { updatedProduct }): IProductFeature => ({
       ...state,
       isLoading: false,
       error: null,

@@ -1,12 +1,12 @@
 import { Component } from '@angular/core'
 import { Store } from '@ngrx/store'
-import { togglelikeProductInitiateAction } from 'src/app/state/actions/products.actions'
+import { togglelikeProductInitiateAction } from 'src/app/state/actions/product.actions'
 import {
   selectIsWishlistOpen,
   selectWishList,
   selectWishListSum,
   selectWishlistCount,
-} from 'src/app/state/selectors/products.selectors'
+} from 'src/app/state/selectors/product.selectors'
 
 @Component({
   selector: 'shop-wishlist',

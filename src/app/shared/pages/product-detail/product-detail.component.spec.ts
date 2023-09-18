@@ -7,14 +7,15 @@ import { of } from 'rxjs'
 import {
   getAllProductsInitiateAction,
   togglelikeProductInitiateAction,
-} from 'src/app/state/actions/products.actions'
+} from 'src/app/state/actions/product.actions'
 import { IAppState } from 'src/app/state/interfaces/app-state.interface'
 import {
   selectAllProducts,
   selectProductsError,
   selectProductsLoading,
-} from 'src/app/state/selectors/products.selectors'
-import { getProductMock } from 'src/app/testing/mocks/product.mock'
+} from 'src/app/state/selectors/product.selectors'
+import { getMockProduct } from 'src/app/testing/mocks/product.mock'
+import { getMockProducts } from 'src/app/testing/mocks/products.mock'
 import { IProduct } from '../../interfaces/product.interface'
 import { NumberAsEuroPipe } from '../../pipes/number-as-euro.pipe'
 import { ProductDetailComponent } from './product-detail.component'
@@ -28,15 +29,11 @@ describe('ProductDetailComponent', () => {
 
   const mockProductsLoading = false
   const mockProductsError = null
-  const mockRouteId = '1'
-  const mockProduct = { ...getProductMock(), id: mockRouteId }
-  const mockProducts: IProduct[] = [
-    getProductMock(),
-    mockProduct,
-    getProductMock(),
-  ]
+  const mockId = '99'
+  const mockProduct = { ...getMockProduct(), id: mockId }
+  const mockProducts: IProduct[] = [...getMockProducts(), mockProduct]
   const mockActivatedRoute = {
-    paramMap: of(convertToParamMap({ id: mockRouteId })),
+    paramMap: of(convertToParamMap({ id: mockId })),
   }
 
   beforeEach(() => {

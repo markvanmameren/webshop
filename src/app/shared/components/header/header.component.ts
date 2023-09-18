@@ -1,11 +1,11 @@
 import { Component } from '@angular/core'
 import { faShop, faXmark } from '@fortawesome/free-solid-svg-icons'
 import { Store } from '@ngrx/store'
-import { toggleWishlistAction } from 'src/app/state/actions/products.actions'
+import { toggleWishlistAction } from 'src/app/state/actions/product.actions'
 import {
   selectIsWishlistOpen,
   selectWishlistCount,
-} from 'src/app/state/selectors/products.selectors'
+} from 'src/app/state/selectors/product.selectors'
 
 @Component({
   selector: 'shop-header',

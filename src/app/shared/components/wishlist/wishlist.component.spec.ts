@@ -3,16 +3,15 @@ import { ComponentFixture, TestBed } from '@angular/core/testing'
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'
 import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing'
 import { MockStore, provideMockStore } from '@ngrx/store/testing'
-import { togglelikeProductInitiateAction } from 'src/app/state/actions/products.actions'
+import { togglelikeProductInitiateAction } from 'src/app/state/actions/product.actions'
 import { IAppState } from 'src/app/state/interfaces/app-state.interface'
 import {
   selectIsWishlistOpen,
   selectWishList,
   selectWishListSum,
   selectWishlistCount,
-} from 'src/app/state/selectors/products.selectors'
-import { getProductMock } from 'src/app/testing/mocks/product.mock'
-import { IProduct } from '../../interfaces/product.interface'
+} from 'src/app/state/selectors/product.selectors'
+import { getMockProducts } from 'src/app/testing/mocks/products.mock'
 import { NumberAsEuroPipe } from '../../pipes/number-as-euro.pipe'
 import { WishlistComponent } from './wishlist.component'
 
@@ -22,11 +21,7 @@ describe('WishlistComponent', () => {
 
   let mockStore: MockStore<IAppState>
   const mockIsWishlistOpen = true
-  const mockWishlist: IProduct[] = [
-    { ...getProductMock(), id: '0' },
-    { ...getProductMock(), id: '1' },
-    { ...getProductMock(), id: '2' },
-  ]
+  const mockWishlist = getMockProducts()
   const mockWishlistCount = mockWishlist.length
   const mockWishlistSum = mockWishlist.reduce(
     (total, { price }) => total + parseFloat(price),

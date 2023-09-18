@@ -4,6 +4,23 @@
   display: flex;
   flex-direction: column;
 
+  .backbutton {
+    color: $color-text-light;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    .text {
+      padding-left: $padding-medium;
+    }
+  }
+
+  .title {
+    padding: $padding-large 0;
+    color: $color-accent;
+  }
+
   .flex-container {
     display: flex;
     gap: $padding-medium;
