@@ -1,9 +1,8 @@
 <a [routerLink]="product.id">
-  <div
-    class="image"
-    [style.background-image]="'url(' + product.imageUrl + ')'"
-    [ariaLabel]="product.title"
-  ></div>
+  <shop-image-with-loader
+    [imageUrl]="product.imageUrl"
+    [altText]="product.title"
+  ></shop-image-with-loader>
   <footer>
     <div class="info">
       <p

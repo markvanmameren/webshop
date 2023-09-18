@@ -32,14 +32,6 @@
       align-items: flex-start;
       gap: $padding-large;
 
-      .image {
-        background-repeat: no-repeat;
-        background-position: left center;
-        min-height: $size-product-detail-image-height;
-        background-size: contain;
-        width: 100%;
-      }
-
       footer {
         width: 100%;
         display: flex;

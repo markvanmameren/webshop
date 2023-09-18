@@ -4,7 +4,7 @@
   position: fixed;
   overflow: hidden scroll;
   background-color: $color-background-body;
-  max-height: calc(100vh - ($size-header-footer-height * 2));
+  max-height: calc(100vh - ($size-header-footer-height));
   z-index: 2;
 
   .row {
@@ -31,7 +31,7 @@
 }
 
 /* Mobile */
-@media (max-width: $mobile-breakpoint) {
+@media (max-width: $size-max-content-width) {
   .wishlist {
     top: $size-header-footer-height;
     right: 0;
@@ -41,7 +41,7 @@
 }
 
 /* Desktop */
-@media (min-width: $mobile-breakpoint) {
+@media (min-width: $size-max-content-width) {
   .wishlist {
     top: $size-header-footer-height;
     right: calc((100vw - $size-max-content-width) / 2);

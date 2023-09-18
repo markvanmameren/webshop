@@ -27,11 +27,10 @@
       ></h2>
       <div class="flex-container">
         <div class="info">
-          <div
-            class="image"
-            [style.background-image]="'url(' + product.imageUrl + ')'"
-            [ariaLabel]="product.title"
-          ></div>
+          <shop-image-with-loader
+            [imageUrl]="product.imageUrl"
+            [altText]="product.title"
+          ></shop-image-with-loader>
           <p
             class="description"
             [innerHTML]="product.description"

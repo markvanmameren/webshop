@@ -13,7 +13,8 @@ import { ProductCardComponent } from './components/product-card/product-card.com
 import { WishlistComponent } from './components/wishlist/wishlist.component'
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component'
 import { ProductListComponent } from './pages/product-list/product-list.component'
-import { NumberAsEuroPipe } from './pipes/number-as-euro.pipe'
+import { NumberAsEuroPipe } from './pipes/number-as-euro.pipe';
+import { ImageWithLoaderComponent } from './components/image-with-loader/image-with-loader.component'
 
 @NgModule({
   imports: [
@@ -34,6 +35,7 @@ import { NumberAsEuroPipe } from './pipes/number-as-euro.pipe'
     ErrorMessageComponent,
     LoaderComponent,
     WishlistComponent,
+    ImageWithLoaderComponent,
   ],
   exports: [
     ProductListComponent,

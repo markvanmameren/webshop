@@ -1,0 +1,12 @@
+<shop-loader
+  *ngIf="isLoading"
+  [isLarge]="false"
+>
+</shop-loader>
+<img
+  [src]="imageUrl"
+  [alt]="altText"
+  [style.display]="isLoading ? 'none' : 'block'"
+  (load)="isLoading = false"
+  (error)="isLoading = false"
+/>
