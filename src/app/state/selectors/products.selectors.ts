@@ -10,14 +10,9 @@ export const selectIsWishlistOpen = createSelector(
   ({ isWishlistOpen }) => isWishlistOpen
 )
 
-export const selectLoading = createSelector(
+export const selectProductsLoading = createSelector(
   selectProductsFeature,
   ({ isLoading }) => isLoading
-)
-
-export const selectAllProducts = createSelector(
-  selectProductsFeature,
-  ({ products }) => products
 )
 
 export const selectProductsError = createSelector(
@@ -25,23 +20,28 @@ export const selectProductsError = createSelector(
   ({ error }) => error
 )
 
+export const selectAllProducts = createSelector(
+  selectProductsFeature,
+  ({ products }) => products
+)
+
 export const selectProductsById = (id: string) =>
-  createSelector(selectProductsFeature, ({ products }) =>
+  createSelector(selectAllProducts, (products) =>
     products.find((product) => product.id === id)
   )
 
-export const selectLikedProducts = createSelector(
+export const selectWishList = createSelector(
   selectProductsFeature,
   ({ products }) => products.filter(({ liked }) => liked)
 )
 
-export const selectCountLikedProducts = createSelector(
-  selectLikedProducts,
+export const selectWishlistCount = createSelector(
+  selectWishList,
   (likedProducts) => likedProducts.length
 )
 
-export const selectSumLikedProducts = createSelector(
-  selectLikedProducts,
+export const selectWishListSum = createSelector(
+  selectWishList,
   (likedProducts) =>
     likedProducts.reduce((total, { price }) => total + parseFloat(price), 0)
 )

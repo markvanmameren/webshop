@@ -7,9 +7,9 @@ import {
   togglelikeProductInitiateAction,
 } from 'src/app/state/actions/products.actions'
 import {
-  selectLoading,
   selectProductsById,
   selectProductsError,
+  selectProductsLoading,
 } from 'src/app/state/selectors/products.selectors'
 import { IProduct } from '../../interfaces/product.interface'
 
@@ -19,9 +19,9 @@ import { IProduct } from '../../interfaces/product.interface'
   styleUrls: ['./product-detail.component.scss'],
 })
 export class ProductDetailComponent implements OnInit {
-  public isLoading$ = this.store.select(selectLoading)
-  public product$: Observable<IProduct | undefined>
+  public isLoading$ = this.store.select(selectProductsLoading)
   public errorMessage$ = this.store.select(selectProductsError)
+  public product$: Observable<IProduct | undefined>
 
   public constructor(
     private readonly activatedRoute: ActivatedRoute,

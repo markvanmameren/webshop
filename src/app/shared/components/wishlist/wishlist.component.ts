@@ -2,10 +2,10 @@ import { Component } from '@angular/core'
 import { Store } from '@ngrx/store'
 import { togglelikeProductInitiateAction } from 'src/app/state/actions/products.actions'
 import {
-  selectCountLikedProducts,
   selectIsWishlistOpen,
-  selectLikedProducts,
-  selectSumLikedProducts,
+  selectWishList,
+  selectWishListSum,
+  selectWishlistCount,
 } from 'src/app/state/selectors/products.selectors'
 
 @Component({
@@ -15,9 +15,9 @@ import {
 })
 export class WishlistComponent {
   public isWishlistOpen$ = this.store.select(selectIsWishlistOpen)
-  public likedProducts$ = this.store.select(selectLikedProducts)
-  public count$ = this.store.select(selectCountLikedProducts)
-  public sum$ = this.store.select(selectSumLikedProducts)
+  public wishlist$ = this.store.select(selectWishList)
+  public wishlistCount$ = this.store.select(selectWishlistCount)
+  public wishlistSum$ = this.store.select(selectWishListSum)
 
   public constructor(private readonly store: Store) {}
 

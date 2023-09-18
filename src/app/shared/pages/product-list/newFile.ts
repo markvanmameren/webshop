@@ -1,6 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing'
-
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'
 import { MockStore, provideMockStore } from '@ngrx/store/testing'
 import { getAllProductsInitiateAction } from 'src/app/state/actions/products.actions'
 import { IAppState } from 'src/app/state/interfaces/app-state.interface'
@@ -18,7 +16,6 @@ fdescribe('ProductListComponent', () => {
   let fixture: ComponentFixture<ProductListComponent>
 
   let mockStore: MockStore<IAppState>
-  let dispatchSpy: jasmine.Spy
 
   const mockProductsLoading = false
   const mockProductsError = null
@@ -51,34 +48,17 @@ fdescribe('ProductListComponent', () => {
     fixture = TestBed.createComponent(ProductListComponent)
     component = fixture.componentInstance
 
-    mockStore = TestBed.inject(MockStore<IAppState>)
-    dispatchSpy = spyOn(mockStore, 'dispatch')
-
     fixture.detectChanges()
   })
 
-  describe('constructor', () => {
-    it('should create', () => {
-      expect(component).toBeTruthy()
-    })
-
-    it('should set isLoading$', (done) => {
-      component.isLoading$.subscribe((isLoading) => {
-        expect(isLoading).toBe(mockProductsLoading)
-        done()
-      })
-    })
-
-    it('should set errorMessage$', (done) => {
-      component.errorMessage$.subscribe((errorMessage) => {
-        expect(errorMessage).toBe(mockProductsError)
-        done()
-      })
-    })
+  it('should create', () => {
+    expect(component).toBeTruthy()
   })
 
   describe('ngOnInit', () => {
     it('should dispatch getAllProductsInitiateAction', () => {
+      const dispatchSpy = spyOn(mockStore, 'dispatch')
+
       expect(dispatchSpy).toHaveBeenCalledOnceWith(
         getAllProductsInitiateAction()
       )

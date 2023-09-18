@@ -9,11 +9,11 @@
     <span
       class="title"
       role="columnheader"
-      >My Wishlist ({{ (count$ | async) ?? 0 }} items)</span
+      >My Wishlist ({{ (wishlistCount$ | async) ?? 0 }} items)</span
     >
   </div>
   <article
-    *ngFor="let product of likedProducts$ | async"
+    *ngFor="let product of wishlist$ | async"
     class="row"
     role="row"
   >
@@ -42,7 +42,7 @@
     >
     <span
       class="price"
-      [innerText]="(sum$ | async) ?? 0 | numberAsEuro"
+      [innerText]="(wishlistSum$ | async) ?? 0 | numberAsEuro"
     ></span>
   </div>
 </aside>
